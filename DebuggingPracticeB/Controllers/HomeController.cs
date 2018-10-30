@@ -11,9 +11,9 @@ namespace HttpPractice.Controllers
         }
 
         [HttpPost]
-        public IActionResult HomeTown(string state, string town)
+        public IActionResult HomeTown(string state, string city)
         {
-            string content = "State: " + state + ", City: " + town;
+            string content = "State: " + state + ", City: " + city;
             return Content(content);
         }
 
@@ -27,7 +27,14 @@ namespace HttpPractice.Controllers
         public IActionResult Vacation(string location, string activity, string clothing)
         {
             string content = "Location: " + location + ", Activity: " + activity + ", What to wear: " + clothing;
-            return Content("content");
+            return Content(content);
+        }
+
+        [HttpPost]
+        public IActionResult Reading(string genre, string author, string book)
+        {
+            string content = "Genre: " + genre + ", Author: " + author + ", Book: " + book;
+            return Content(content);
         }
 
     }

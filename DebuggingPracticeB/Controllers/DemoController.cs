@@ -10,12 +10,17 @@ namespace HttpPractice.Controllers
     public class DemoController : Controller
     {
         // GET: /<controller>/
-        public IActionResult PageOne()
+        public IActionResult Index()
         {
             return View();
         }
 
         public IActionResult PageTwo(string mascot)
+        {
+            return View("PageTwo", mascot);
+        }
+
+        public IActionResult PageThree()
         {
             return View();
         }
@@ -31,12 +36,12 @@ namespace HttpPractice.Controllers
         public IActionResult Quiz1Answer(string number1, string number2, string answer)
         {
             string check = "wrong :-(";
-            if (number1 + number2 == answer)
+            if (int.Parse(number1) + int.Parse(number2) == int.Parse(answer))
                 check = "right!";
             return Content(check);
         }
 
-        [HttpPost]
+        [HttpGet]
         public IActionResult Quiz2()
         {
             Random rand = new Random();
@@ -46,7 +51,7 @@ namespace HttpPractice.Controllers
             return View(numbers);
         }
 
-        [HttpGet]
+        [HttpPost]
         public IActionResult Quiz2(int number1, int number2, int answer)
         {
             string check = "wrong :-(";
